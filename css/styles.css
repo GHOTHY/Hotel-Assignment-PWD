@@ -1,0 +1,452 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+/* Resetting Everything */
+*,
+*::before,
+*::after{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+/* Custom Effects */
+:root{
+   /* CODE TEAL : #148cce */
+   /* RGBA: rgba(20, 140, 206, .7); */
+   /* KABUL COLOR: #5c4f40 */
+   --dark-color: #2d2c2c;
+   --orange-solid: #f44336;
+   --river-transparent: rgba(0,0,0, .6);
+   --river-transparent-alt: rgba(20, 140, 206, .2);
+   --orange-light: #f44336;
+   --teal-solid: #2196f3;
+   --gradient-color: linear-gradient(to right, var(--teal-solid), var(--orange-light));
+   --gradient-color-alt: linear-gradient(to right, var(--orange-light), var(--teal-solid));
+}
+/* Styles for everything */
+
+html{
+   font-size: 10px;
+}
+
+body{
+   font-family: 'Open Sans', sans-sans-serif;
+   font-size: 1.6rem;
+   color: var(--dark-color);
+}
+
+a{
+   text-decoration: none;
+   color: inherit;
+}
+
+ul{
+   list-style: none;
+}
+
+section{
+   padding: 5rem 0;
+}
+/* Reusable Styles */
+.container{
+   width: 100%;
+   max-width: 120rem;
+   padding: 0 1.5rem;
+   margin: 0 auto;
+}
+
+.btn{
+   color: white;
+   font-size: 1.3rem;
+   font-weight: bold;
+   text-transform: uppercase;
+   padding: .5rem 3.5rem;
+   border: none;
+   border-radius: 10rem;
+   display: inline-flex;
+   align-items: center;
+}
+
+.form-btn{
+   margin-top: 2.5rem;
+   cursor: pointer;
+}
+
+.btn-gradient{
+   background-image: var(--gradient-color);
+}
+
+.btn-gradient:hover{
+   background-image: var(--gradient-color-alt);
+}
+
+.btn-river{
+   background-color: var(--teal-solid);
+}
+
+.btn-river:hover{
+   background-color: var(--river-transparent);
+}
+
+.dots{
+   font-size: 2.4rem;
+   margin-left: .5rem;
+   opacity: .75;
+}
+
+/* Header Style */
+.header{
+   width: 100%;
+   height: 6rem;
+   display: flex;
+   align-items: center;
+   position: fixed;
+   top: 0;
+   left: 0;
+   background-color: var(--river-transparent);
+   z-index: 999;
+}
+
+/* Makes header white on hover */
+.header:hover{
+   background-color: rgba(255, 255, 255, 1);
+}
+
+/* Header changes color when user scroll */
+.header.active{
+   background-color: white;
+}
+
+/* Header Style - Nav */
+.nav{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.logo img{
+   max-width: 50%;
+}
+
+.hamburger-menu{
+   font-size: 2.6rem;
+   color: black;
+   cursor: pointer;
+   position: relative;
+   z-index: 1500;
+}
+
+.hamburger-menu .fa-times{
+   display: none;
+}
+
+/* Displays the X for the menu bar. */
+.menu-open .hamburger-menu .fa-times{
+   display: block;
+}
+
+/* Remove the Bars icon when the menu bar is open. */
+.menu-open .hamburger-menu .fa-bars{
+   display: none;
+}
+
+.nav-list{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100vh;
+   background-color: black;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   z-index: 1400;
+   opacity: 0;
+   transform: scale(0);
+   transition: opacity .3s;
+}
+
+.menu-open .nav-list{
+   opacity: 1;
+   transform: scale(1);
+}
+
+/* Apply for all except last item (Contact Us) */
+.nav-item:not(:last-child){
+   margin: .5rem;
+}
+
+.nav-link{
+   display: block;
+   color: white;
+   font-size: 3rem;
+   font-weight: bold;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+   padding: 1rem;
+}
+
+/* Hero section */
+.hero{
+   width: 100%;
+   height: 100vh;
+   background: url("/images/background.jpg") center no-repeat;
+   background-size: cover;
+   display: flex;
+   align-items: center;
+   text-align: center;
+   position: relative;
+   z-index: 0;
+}
+
+.hero::before{
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: inherit;
+   height: inherit;
+   z-index: -1;
+}
+
+.main-heading{
+   color: white;
+   line-height: 1;
+   text-shadow: 1px 1px 1rem rgba(0, 0, 0, .5);
+   margin-bottom: 2.5rem;
+}
+
+.title{
+   font-size: 4.8rem;
+   text-transform: uppercase;
+   letter-spacing: 3px;
+   font-weight: 600;
+   font-family: 'Cormorant', serif;
+}
+
+.subtitle{
+   font-size: 3.6rem;
+   font-weight: 500;
+   font-family: 'Cormorant', serif;
+}
+
+/* Booking Section */
+.booking{
+   background-image: var(--gradient-color);
+}
+
+.input-group{
+   margin-bottom: 1.5rem;
+}
+
+.input-label{
+   display: block;
+   font-size: 1.3rem;
+   text-transform: uppercase;
+   color: white;
+   font-weight: bold;
+   margin-bottom: 1rem;
+}
+
+.input, .options{
+   /* Gets rid of the default blue outline  */
+   outline: none;
+   border: none;
+   width: 100%;
+   min-height: 4rem;
+   padding: 1rem;
+   font-weight: bold;
+   color: #a5a5a5;
+   font-family: 'Cormorant', serif;
+   /* This will not be resized when I resize contact us form. */
+   resize: none;
+}
+/* Featured suites room heading*/
+.section-head{
+   text-align: center;
+   margin-bottom: 5rem;
+
+}
+
+.heading{
+   display: block;
+   font-family: 'Cormorant', serif;
+   font-weight: 700;
+   font-size: 3.8rem;
+   text-transform: uppercase;
+}
+
+.sub-heading{
+   font-size: 2.8rem;
+   font-family: 'Cormorant', serif;
+   font-weight: 500;
+   color: grey;
+}
+
+.grid{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+   grid-gap: 2.5rem;
+}
+
+.grid-item{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.featured-suites{
+   height: 35rem;
+   color: white;
+   padding: 1rem;
+   position: relative;
+   z-index: 0;
+}
+
+.featured-suites::before{
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%
+   background-color: var(--river-transparent);
+   z-index: -1;
+}
+
+.suite-image{
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: -2;
+}
+
+.suite-name{
+   font-size: 2.6rem;
+}
+
+.suite-price{
+   font-size: 1.8rem;
+}
+
+/* Contact Styling */
+
+.contact-content{
+   display: flex;
+   justify-content: center;
+}
+
+.contact-form{
+   width: 100%;
+   background-color: grey;
+   /* background-image: var(--gradient-color); */
+   padding: 2.5rem;
+}
+
+.contact-form .input{
+   display: block;
+   background-color: transparent;
+   color: white;
+   font-weight: normal;
+   border-bottom: 2px solid white;
+   padding-left: 0;
+}
+
+.bar{
+   display: block;
+   position: relative;
+}
+
+.bar::after{
+   content: '';
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 3px;
+   background-color: var(--orange-light);
+   transform: scaleX(0);
+   transform-origin: left;
+   -webkit-transition: transform .3s;
+   -o-transition: transform .3s;
+   transition: transform .3s;
+   -moz-transition: transform .3s;
+}
+
+.contact-form .input:focus + bar::after{
+   transform: scaleX(1);
+}
+
+/* Footer Section */
+.footer{
+   padding: 5rem 0;
+   /* background-color: var(--orange-solid); */
+   background-color: grey;
+   color: white;
+}
+
+.footer-content-brand{
+   margin-bottom: 5rem;
+}
+
+.footer .paragraph{
+   color: inherit;
+}
+
+.footer-heading{
+   text-transform: uppercase;
+   margin-bottom: 2.5rem;
+}
+
+.social-media{
+   display: flex;
+}
+
+.sm-link{
+   width: 4rem;
+   height: 4rem;
+   border: 2px solid var(--teal-solid);
+   border-radius: 50%;
+   display: flex;
+   margin-right: 1rem;
+   -webkit-transition: background-color .5s;
+   -o-transition: background-color .5s;
+   -moz-transition: background-color .5s;
+   transition: background-color .5s;
+}
+
+.sm-link:hover{
+   background-color: var(--teal-solid);
+   color: var(--dark-color);
+}
+
+.sm-link i{
+   margin: auto;
+}
+
+/* Accomodation Page HTML */
+.accomodation-image{
+   width: 100%;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+}
+
+.accomodation-image img{
+   width: 100%;
+   height: 100%;
+}
+
+/* About Us Page HTML */
+.about-us{
+   text-align: center;
+}
+
+.paragraph{
+   margin: 3rem 15rem;
+   font-size: 2rem;
+}
